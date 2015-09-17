@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Refactored date examples</title>
+ 
+  <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.19.0.css">
+  <script src="//code.jquery.com/qunit/qunit-1.19.0.js"></script>
+ <script src="Geo.js"></script>
+ <script src="line.js"></script>
+ <script src="../libs/shp.js"></script>
+<script src="map.js"></script>
+<script src="../libs/jsnetworkx.js"></script>
+<script src="colorscheme.js"></script>
+<script src="../libs/d3.js" charset="utf-8"></script>
+<script src="../libs/shp.min.js"></script>
+ <script src="../libs/jsnetworkx.js"></script>
+ <script src="Csv.js"></script>
+  <script>
+  QUnit.test("colorscheme", function( assert ) {
+    var col=new colorscheme('blue');
+    var colorblue=new Array();
+    colorblue[0]='rgb(19,31,44)';
+    colorblue[1]='rgb(38,63,93)';
+    colorblue[2]='rgb(19,31,44)';
+    colorblue[3]='rgb(43,104,142)';
+    colorblue[4]='rgb(184,210,221)';
+    console.log(col.getColors("blue"));
+    var colorred=new Array();
+    colorred[0]='rgb(236,57,50)';
+    colorred[1]='rgb(184,29,29)';
+    colorred[2]='rgb(163,23,23)';
+    colorred[3]='rgb(165,194,0)';
+    colorred[4]='rgb(220,23,23)';
+
+    console.log(col.getColors("red"));
+    //assert.deepEqual(col.getColors("blue"),colorblue);
+    assert.deepEqual(col.getColors("red"),colorred);
+        
+    
+  });
+QUnit.test("svg",function(assert){
+var testmap=new map("test");
+var width=testmap.initMap(700,700).attr('width');
+assert.deepEqual(width,"700");
+
+});
+QUnit.test("filter",function(assert){
+var l1=new lines("a");
+var l2=new lines("b");
+var array1=new Array();
+ array1.push(l1);
+ array1.push(l2);
+var array2=new Array();
+array2.push(l1);
+console.log(containsObject(l1,array1));
+assert.deepEqual(containsObject(l1,array1) ,true);
+assert.deepEqual(containsObject(l1,array2) ,true);
+assert.deepEqual(containsObject(l2,array1) ,true);
+assert.deepEqual(containsObject(l2,array2) ,false);
+
+});
+
+  </script>
+</head>
+<body>
+ 
+<div id="qunit"></div>
+<div id="container"> </div>
+</body>
+</html>

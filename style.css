@@ -1,0 +1,117 @@
+#container{
+
+  text-align:right;
+   }
+   #ebcent{
+    overflow: scroll;
+    height :150px;
+    background-color:#9966FF;
+    color: "white" !important;
+   }
+   #ebcenthead{
+
+    background-color:#9966FF;
+    color :"white" !important;
+   }
+   #betc{
+    overflow: scroll;
+    background-color:#33FF99;
+    color :"white" !important;
+    height :150px;
+   }
+   #container{
+    background-color:#383838;
+    position: relative;
+    height: 700px;
+    width: 700px;
+   }
+   #evc{
+    overflow: scroll;
+    background-color:#FFFF33;
+    color :"white" !important;
+    height :150px;
+   }
+   #deg{
+    overflow: scroll;
+    background-color:#FF6666;
+    height :150px;
+   }
+  .d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+    }
+    .btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.panel-default{
+background-color:#606060 ;
+border-radius: 0px;
+}
+.centerlity{
+  border-radius: 0px;
+  background-color:#B0B0B0;
+}
+.panel{
+  border-radius: 0px;
+}
+.panel-body{
+  border-radius: 0px;
+
+}
+.list-group{
+  border-radius: 0px;
+  background-color:#383838;
+
+}
+.panel-heading{
+  border-radius: 0px;
+}
+.list-group{
+  border-radius: 0px;
+
+}
+a.list-group-item{
+background-color:#383838;
+opacity: 0.8;
+ border-radius: 0px;
+  color :white;
+
+}
+a.list-group-item-text{
+  color :black;
+}
+a.list-group-item-heading{
+  border-radius: 0px;
+  background-color:#B0B0B0;
+  color :black;
+}
+body{
+  background-color: #989898  ;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 10%;
+    min-height: 10%;
+    font-size: 100px;
+    text-align: right;
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+#map{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 700px;
+  height: 700px;
+  z-index: -2;
+}

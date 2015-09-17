@@ -1,0 +1,118 @@
+<html>
+<head>
+<script src="libs/shp.js"></script>
+<script src="components/map.js"></script>
+<script src="libs/jsnetworkx.js"></script>
+<script src="components/colorscheme.js"></script>
+<script src="libs/d3.js" charset="utf-8"></script>
+<script src="libs/shp.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmWAKWsRev7O5iMhW_PnKj6YEBYojak1s">
+</script>
+ <script src="components/Geo.js"></script>
+<script src="alerts/dist/sweetalert.min.js"></script> 
+<script src="components/line.js"></script>
+<script src="components/location.js"></script>
+<script src="components/Csv.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="alerts/dist/sweetalert.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body >
+  <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">GeoBigi</a>
+            </div>
+          </div>
+        </nav>
+
+    <table>
+      <tr class="col">
+        <td>
+      <div  id='main'>
+        <div  id='svgcol'>
+          <div class="panel panel-default">
+          <div class="panel-heading">Control Pannel</div>
+          <div class="panel-body">
+         
+            <a class="list-group-item" onclick="lo()">Draw</a>
+            <a class="list-group-item" color="#C0C0C0">
+                Shape Files
+                <input type='file' accept='*' id='a'>
+                </a>
+            <a class="list-group-item" color="#C0C0C0">
+                Csv Files
+                <input type='file' accept='*' id='b'>
+                </a>
+            <a class="list-group-item" onclick="test()" color="#C0C0C0">Load</a>
+            <a class="list-group-item" onclick="check()" color="#C0C0C0">Plot </a> 
+          <a class="list-group-item"  color="#C0C0C0">  The Upper Bound <div class="input-group">
+  <input type="text" class="form-control" placeholder="0" aria-describedby="basic-addon2" id='lowerbound' value="0">
+              </div></a>
+            <a class="list-group-item" onclick="GoogleMap()" color="#C0C0C0">Google Map</a>
+            <a class="list-group-item" onclick="SelectColor('heatmap')" color="#C0C0C0">HeatMap</a>
+            <a class="list-group-item" onclick="SelectColor('red')" color="#C0C0C0">Red</a>
+            <a class="list-group-item" onclick="SelectColor('green')" color="#C0C0C0">Green</a>
+            <a class="list-group-item" onclick="SelectColor('blue')" color="#C0C0C0">Blue</a>
+            <a class="list-group-item" onclick="ClearAll()" color="#C0C0C0">Clear</a>
+            <a class="list-group-item" onclick="Lock()" color="#C0C0C0">Lock</a>
+            <a class="list-group-item" onclick="ClearDataLayer()" color="#C0C0C0">Clear Data</a>
+            <a class="list-group-item" onclick="save()">Save</a>
+            <div id='Parameters'></div>
+         </div>
+       </div>
+          </div>
+        </td>
+        <td>
+          <div  id="container">
+            <div id='map'></div>
+          </div>
+        </td>
+        <td>
+          <div  id="centerality">
+            <div class="list-group">
+  <a href="#" class="list-group-item" id="betc">
+    <h4 class="list-group-item-heading">Betweenness Centrality<hr/></h4>
+    <p class="list-group-item-text" id="betweennessCentrality"></p>
+  </a>
+  <a href="#" class="list-group-item" id="ebcent">
+    <h4 class="list-group-item-heading" id="ebcenthead">Edge Betweenness Centrality<hr/></h4>
+    <p class="list-group-item-text" id="edgeBetweennessCentrality"></p>
+  </a>
+  <a href="#" class="list-group-item centerlity" id="evc">
+    <h4 class="list-group-item-heading">Eigen Vector Centrality<hr/></h4>
+    <p class="list-group-item-text" id='eigenvectorCentrality'></p>
+  </a>
+  <a href="#" class="list-group-item centerlity" id="deg">
+    <h4 class="list-group-item-heading">Degree<hr/></h4>
+    <p class="list-group-item-text" id='degree'></p>
+  </a>
+</div>
+          </div>
+        </div>
+      </td>
+      </tr>
+         </table>
+  
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar"> 
+        <p id="demo"></p>
+    <div class='output'>
+    <div id="svgdataurl"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+<script src="Geo.js"></script>
+</body>
+</html>

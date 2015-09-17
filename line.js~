@@ -1,0 +1,20 @@
+function lines(name,value){
+    this.name = name;
+    this.value=value;
+    this.corrdinates =new Array();
+    this.draw = function(svg,line,clr){
+        svg.append("line")
+        .attr("x1", line.corrdinates[0])
+        .attr("y1", line.corrdinates[1])
+        .attr("x2", line.corrdinates[2])
+        .attr("y2", line.corrdinates[3])
+        .attr("stroke-width", 3)
+        .attr("stroke", clr);
+    };
+    this.addCorrdinates=function(corrdinatex,corrdinatey,line){
+        var corrdinate=new Array();
+        corrdinate.push(corrdinatex);
+        corrdinate.push(corrdinatey);
+        line.corrdinates.push(corrdinate);
+    };
+};
